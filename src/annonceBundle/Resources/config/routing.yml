@@ -1,0 +1,12 @@
+annonce_homepage:
+    path:     /annonce
+    defaults: { _controller: annonceBundle:Default:index }
+begin:
+    path:     /begin
+    controller: annonceBundle:Annonce:begin
+test:
+  path: /test
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template: '..\..\..\src\annonceBundle\Resources\views/Static/page_test.html.twig'
+

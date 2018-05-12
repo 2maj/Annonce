@@ -1,0 +1,20 @@
+use:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+annonce:
+    resource: "@annonceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mht_forum:
+    resource: "@MHTForumBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mht:
+    resource: "@MHTBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,6 @@
+mht_homepage:
+    path:     /mht/{name}
+    defaults: { _controller: MHTBundle:Default:home }
+mht_page:
+        path:     /home
+        defaults: { _controller: MHTBundle:Default:home }
