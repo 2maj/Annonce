@@ -1,0 +1,33 @@
+{% extends 'default/layout.html.twig' %}
+
+{% set title='Home' %}
+{% set type_compte='Admin' %}
+{% set namepage="Créer un compte" %}
+{% block div %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Formulaire de création de compte</div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <di role="form">
+                                {{ form_start(formulaire) }}
+
+                                <label>{{ form_label(formulaire.type_compte) }}</label>
+                                <div class="form-group">{{ form_widget(formulaire.type_compte) }}</div>
+                                <label>{{ form_label(formulaire.nom) }}</label>
+                                <div class="form-group"> {{ form_widget(formulaire.nom) }}</div>
+
+                                <label>{{ form_label(formulaire.prenom) }}</label>
+                                <div class="form-group"> {{ form_widget(formulaire.prenom) }}</div>
+
+                                    {#{ form_row(formulaire.submit) }#}
+                                {{ form_end(formulaire) }}
+                            </di>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{# {{ form(formulaire) }} #}

@@ -53,6 +53,14 @@ class DefaultController extends Controller
         return array("produits" => $produits);
     }
     /**
+     * @Route("/data/{id}/{nom}", name="data")
+     * @Template()
+     */
+    public function dataAction($nom, $id)
+    {
+        return array("nom" => $nom, "id" => $id);
+    }
+    /**
      * @Route("/scanproduct/")
      * @Template()
      */
@@ -65,6 +73,12 @@ class DefaultController extends Controller
             ->getForm();
         $form->handleRequest($request);
         if($form->isValid()){
+            /*
+             * Pour récuper les données du formulaire
+            $nom = $form->get('nom')->getData();
+            $id = $form->get('prix')->getData();
+            return  $this->redirect($this->generateUrl('data', array("id" => $id, "nom" => $nom)));
+            */
             $entitymanager=$this->getDoctrine()->getManager();
             $entitymanager->persist($p);
             $entitymanager->flush();

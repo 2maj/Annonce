@@ -13,8 +13,14 @@ use Symfony\Component\HttpFoundation\Response;
 class AnnonceController extends Controller
 {
     public function beginAction(){
-        $content = $this->render('..\..\..\src\annonceBundle\Resources\views\Annonce\layout.html.twig', array('name' => "moussa"));
-        return new Response($content);
+        //$content = $this->render('..\..\..\src\annonceBundle\Resources\views\Annonce\layout.html.twig', array('name' => "moussa"));
+        return $this->forward('UserBundle:User:user_display_all');
     }
+    /*
+    public function userAction(){
+        $response = $this->forward('MHTForumBundle:Default:scanproduct');
+        return $response;
+    }
+    */
 
 }
