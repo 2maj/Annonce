@@ -4,6 +4,9 @@ annonce_homepage:
 begin:
     path:     /begin
     controller: annonceBundle:Annonce:begin
+annonce_list:
+    path:     /annone_list
+    controller: annonceBundle:Annonce:annonce_list
 
 test:
   path: /test

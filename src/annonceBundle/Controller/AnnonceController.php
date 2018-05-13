@@ -22,5 +22,8 @@ class AnnonceController extends Controller
         return $response;
     }
     */
+    public function annonce_listAction(){
+        return;
+    }
 
 }

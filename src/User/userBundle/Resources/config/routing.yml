@@ -1,5 +1,5 @@
 homepage:
- homepage: pattern
+ path:     /homepage
  defaults:
   _controller: UserBundle:User:home
 
@@ -12,6 +12,14 @@ user_add:
     defaults:
      _controller: UserBundle:User:user_add
 connect:
-    path:     /connexion
+    path:     /connexion/{user}
     defaults:
      _controller: UserBundle:User:connect
+homeUser:
+    path:     /
+    defaults:
+     _controller: UserBundle:User:home
+user_display_all:
+    path:     /user_display_all
+    defaults:
+     _controller: UserBundle:User:user_display_all

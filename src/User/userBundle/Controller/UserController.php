@@ -23,6 +23,17 @@ class Connect{
     private $nom;
 
     /**
+     * Connect constructor.
+     * @param $id
+     * @param $nom
+     */
+    public function __construct($id=null, $nom="")
+    {
+        $this->id = $id;
+        $this->nom = $nom;
+    }
+
+    /**
      * @return mixed
      */
     public function getNom()
@@ -56,27 +67,38 @@ class Connect{
 }
 class UserController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function homeAction(Request $request){
-        $connect= new produit();
-        $form = $this->createForm($connect)
+        $form = $this->createFormBuilder()
             ->add('id', IntegerType::class)
             ->add('nom', TextType::class)
             ->add('connexion', SubmitType::class)
             ->getForm();
         $form->handleRequest($request);
+
         if($form->isValid()){
             $nom = $form->get('nom')->getData();
             $id = $form->get('id')->getData();
-
-            $check = $this->getDoctrine()->getRepository('\User\userBundle\Entity\User\userBundle')->findBy(
+            $user = $this->getDoctrine()->getRepository('\User\userBundle\Entity\User\userBundle')->findBy(
                 array('id' => $id, 'nom' => $nom));
-            return  $this->redirect($this->generateUrl('homepage'));
+            if($user != null) {
+                return $this->redirect($this->generateUrl('connect', array('user' => $nom)));
+            }
+            /*
+            else{
+                return $this->redirect($this->generateUrl('connect', array('check' => 'ko')));
+            }
+            */
         }
+
         $content = $this->render('..\..\..\src\User\userBundle\Resources\views\home.html.twig', array("formulaire" => $form->createView()));
         return new Response($content);
     }
-    public function connectAction(){
-        $content = $this->render('..\..\..\src\User\userBundle\Resources\views\connect.html.twig', array("check" => "checking work well !"));
+    public function connectAction($user){
+        $content = $this->render('..\..\..\src\User\userBundle\Resources\views\connect.html.twig', array("user" => $user));
         return new Response($content);
     }
     public function user_display_allAction(){
@@ -91,7 +113,7 @@ class UserController extends Controller
                 'choices' => array(
                     '' => '',
                     'Manager' => 'Manager',
-                    'CLient' => 'Client',
+                    'Client' => 'Client',
                     'Employee' => 'Employee',
                 ),
             ))
