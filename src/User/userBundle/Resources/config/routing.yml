@@ -1,3 +1,17 @@
-use_homepage:
-    path:     /
-    defaults: { _controller: UseBundle:Default:index }
+homepage:
+ homepage: pattern
+ defaults:
+  _controller: UserBundle:User:home
+
+user:
+    path:     /user
+    defaults:
+     _controller: UserBundle:User:user
+user_add:
+    path:     /user_add
+    defaults:
+     _controller: UserBundle:User:user_add
+connect:
+    path:     /connexion
+    defaults:
+     _controller: UserBundle:User:connect
