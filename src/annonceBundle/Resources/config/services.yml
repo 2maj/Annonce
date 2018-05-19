@@ -6,3 +6,7 @@ services:
 #    annonce.example:
 #        class: annonceBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+ #form.type.datePicker:
+  # class: annonceBundle\Controller\DatePickerType
+   #tags:
+    #− { name: form.type, alias: datePicker }

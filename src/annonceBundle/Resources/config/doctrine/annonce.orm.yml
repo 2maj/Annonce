@@ -1,0 +1,27 @@
+annonceBundle\Entity\annonce:
+    type: entity
+    table: null
+    repositoryClass: annonceBundle\Repository\annonceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        destinataire:
+            type: string
+            length: 255
+        contenu:
+            type: string
+            length: 255
+        dateDebut:
+            type: date
+            column: date_debut
+        dateFin:
+            type: date
+            column: date_fin
+    lifecycleCallbacks: {  }

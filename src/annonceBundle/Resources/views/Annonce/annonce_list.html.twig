@@ -1,0 +1,19 @@
+{% extends 'default/layout.html.twig' %}
+
+{% set title='Home' %}
+{% set type_compte='Admin' %}
+{% set namepage="Liste des toutes les annonces" %}
+{% block div %}
+    <div class="row">
+        {% for annonce in annonces %}
+            <div class="col-md-6">
+                <div class="panel panel-blue">
+                    <div class="panel-heading dark-overlay">{{ annonce.titre }}</div>
+                    <div class="panel-body">
+                        <p>{{ annonce.contenu }}</p>
+                    </div>
+                </div>
+            </div><!--/.col-->
+        {% endfor %}
+    </div>
+{% endblock %}

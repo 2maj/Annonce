@@ -7,7 +7,9 @@ begin:
 annonce_list:
     path:     /annone_list
     controller: annonceBundle:Annonce:annonce_list
-
+annonce_add:
+ path: /annonce_add
+ controller: annonceBundle:Annonce:annonce_add
 test:
   path: /test
   defaults:

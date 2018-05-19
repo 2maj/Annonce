@@ -9,7 +9,24 @@
 namespace annonceBundle\Controller;
 
 
-class DatePickerType
+use Symfony\Component\Form\AbstractType;
+
+class DatePickerType extends AbstractType
 {
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'widget' => 'single_text'
+        ));
+    }
+    public function getParent()
+    {
+        return 'date';
+    }
+
+    public function getName()
+    {
+        return 'datePicker';
+    }
 
 }
